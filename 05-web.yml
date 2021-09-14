@@ -1,0 +1,15 @@
+---
+- name: update web server
+  hosts: app
+  become: yes
+  
+  tasks:
+  - name: ensure git installed
+    yum:
+     name: git
+     state: installed
+  - name: ensure myntra updated
+    git:
+     repo: https://github.com/raman9063/food.git
+     dest: /var/www/html
+

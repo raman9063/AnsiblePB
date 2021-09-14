@@ -1,0 +1,30 @@
+---
+- name: update web server
+  hosts: app
+  become: yes
+  tasks:
+  - name: ensure web directory
+    file:
+    
+     path: /home/centos/web-directory
+     state: directory
+  tasks:
+  - name: endure file download
+    get_url:
+
+     url: https://filesamples.com/samples/document/txt/sample2.txt
+     dest: /home/centos/
+  tasks:
+  - name: ensure appache installed
+    yum:
+     name: httpd
+     state: installed
+  - name: ppache sarted
+    service:
+     name: httpd
+     state: started
+  - name: appache enabled
+    service:
+     name: httpd
+     enabled: yes
+
